@@ -27,3 +27,17 @@ function onlyElementsAtEvenIndex(array) {
   }
   return newArray;
 }
+
+// 배열을 인덱스로 접근, 새로운 배열을 배열의 길이만큼 재 할당하기 때문에 선형 시간이 적용됨
+// O(n) 공간차지
+function subtotals(array) {
+  let subtotalArray = Array(array.length);
+  for (let i = 0; i < array.length; i++) {
+    let subtotal = 0;
+    for (let j = 0; j <= i; j++) {
+      subtotal += array[j];
+    }
+    subtotalArray[i] = subtotal;
+  }
+  return subtotalArray;
+}
