@@ -21,4 +21,30 @@ function anagrams(word1, word2) {
   return true;
 }
 
-anagrams("cat", "tca");
+// anagrams("cat", "tca");
+
+function sameNum(n1, n2) {
+  if (String(n1).length !== String(n2).length) {
+    return false;
+  }
+  let obj1 = {};
+
+  for (let i in String(n1)) {
+    let n = String(n1)[i];
+    obj1[n] ? obj1[n]++ : (obj1[n] = 1);
+  }
+
+  for (let i in String(n2)) {
+    let n = String(n2)[i];
+    if (!obj1[n]) {
+      return false;
+    } else {
+      obj1[n]--;
+    }
+  }
+  console.log(obj1);
+  console.log(true);
+  return true;
+}
+
+sameNum(1821, 1281);
