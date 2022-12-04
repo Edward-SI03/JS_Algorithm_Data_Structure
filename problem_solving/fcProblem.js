@@ -23,7 +23,7 @@ function anagrams(word1, word2) {
 
 // anagrams("cat", "tca");
 
-function sameNum(n1, n2) {
+function sameFrequency(n1, n2) {
   if (String(n1).length !== String(n2).length) {
     return false;
   }
@@ -47,4 +47,27 @@ function sameNum(n1, n2) {
   return true;
 }
 
-sameNum(1821, 1281);
+sameFrequency(182, 281); // true
+sameFrequency(34, 14); // false
+sameFrequency(3589578, 5879385); // true
+sameFrequency(22, 222); // false
+
+function areThereDuplicates() {
+  let obj = {};
+  let j = 0;
+  while (arguments[j]) {
+    !obj[arguments[j]] ? (obj[arguments[j]] = 1) : obj[arguments[j]]++;
+    j++;
+  }
+  console.log(obj);
+  for (let i in obj) {
+    if (obj[i] > 1) {
+      return console.log(true);
+    }
+  }
+  return console.log(false);
+}
+
+areThereDuplicates(1, 2, 3); // false
+areThereDuplicates(1, 2, 2); // true
+areThereDuplicates("a", "b", "c", "a"); // true

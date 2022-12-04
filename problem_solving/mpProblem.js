@@ -42,3 +42,23 @@ function countUniqueValues(arr) {
 // countUniqueValues([1, 2, 3, 4, 4, 4, 7, 7, 12, 12, 13]); // 7
 // countUniqueValues([]); // 0
 // countUniqueValues([-2, -1, -1, 0, 1]); // 4
+
+function areThereDuplicates() {
+  let arr = [...arguments];
+  arr = arr.sort();
+  // console.log(arr);
+  let L = 0;
+  let R = 1;
+
+  while (L < arr.length && R < arr.length) {
+    if (arr[L] === arr[R]) {
+      return console.log(true);
+    }
+    arr[L] < arr[R] ? (L += 2) : (R += 2);
+  }
+  return console.log(false);
+}
+
+areThereDuplicates(1, 2, 3); // false
+areThereDuplicates(1, 2, 2); // true
+areThereDuplicates("a", "b", "c", "c"); // true
