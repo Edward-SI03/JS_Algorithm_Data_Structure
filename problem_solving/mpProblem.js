@@ -82,3 +82,22 @@ function averagePair(arr, n) {
 // averagePair([1, 3, 3, 5, 6, 7, 10, 12, 19], 8); // true
 // averagePair([-1, 0, 3, 4, 5, 6], 4.1); // false
 // averagePair([], 4); // false
+
+/* isSequence라는 함수를 작성하여 두 개의 문자열을 가져오고 
+첫 번째 문자열의 문자가 두 번째 문자열의 문자의 시퀀스를 형성하는지 확인합니다. 
+즉, 함수는 첫 번째 문자열의 문자가 순서를 바꾸지 않고 
+두 번째 문자열의 어딘가에 나타나는지 확인해야 합니다. */
+
+function isSubsequence(s1, s2) {
+  let j = 0;
+  for (let i = 0; i < s2.length; i++) {
+    if (s1[j] === s2[i]) j++;
+    if (j === s1.length) return console.log(true);
+  }
+  return console.log(false);
+}
+
+isSubsequence("hello", "hello world"); // true
+isSubsequence("sing", "sting"); // true
+isSubsequence("abc", "abracadabra"); // true
+isSubsequence("abc", "acb"); // false (order matters)
